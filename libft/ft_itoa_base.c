@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 10:48:08 by exam              #+#    #+#             */
-/*   Updated: 2016/09/11 14:29:35 by gboudrie         ###   ########.fr       */
+/*   Updated: 2016/09/11 14:43:32 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ char		*ft_itoa_base(int value, int base)
 		nb = value * (- 1);
 	else
 		nb = value;
-	while ((value >= base || value <= base * (-1)) && size++ >= 0)
+	while ((value >= base || value <= base * (-1)))
 		value = value / base;
-	if ((str = malloc(size)) == NULL)
+	if ((str = ft_strnew(size)) == NULL)
 		return (NULL);
-	str[size--] = '\0';
 	if (base == 10 && value < 0)
 		str[0] = '-';
 	while (str[size] != '-' && size-- >= 0)
